@@ -1,8 +1,7 @@
 from django.test import TestCase
 
-# Create your tests here.
-from django.contrib.auth.models import User
 
+# Create your tests here.
 class QuestionTest(TestCase):
 
     def test_question(self):

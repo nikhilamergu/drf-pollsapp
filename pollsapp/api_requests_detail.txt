@@ -1,0 +1,184 @@
+Tracks API:
+
+	1. Tracks List
+		Url: http://localhost:8000/api/tracks/
+		method: GET
+		Response: [
+				    {
+				        "id": 2,
+				        "track_text": "mmmmm"
+				    },
+				    {
+				        "id": 4,
+				        "track_text": "mnjkl"
+				    }
+				]
+	2. Tracks Create
+		Url: http://localhost:8000/api/tracks/
+		method: POST
+		Request:
+				    {
+				        "track_text": "ssss"
+				    }
+		Response:
+				    {
+				    	"id": 7,
+				        "track_text": "ssss"
+				    }
+	3. Tracks Detail
+		Url: http://localhost:8000/api/tracks/2/   #2 means track id
+		method: GET
+		Response:
+				    {
+				    	"id": 2,
+				        "track_text": "mmmm"
+				    }
+	4. Tracks Edit
+		Url: http://localhost:8000/api/tracks/2/   #2 means track id
+		method: PUT
+		Request:
+				    {
+				        "track_text": "mmmm123"
+				    }
+		Response:
+				    {
+				    	"id": 2,
+				        "track_text": "mmmm123"
+				    }
+
+	5. Tracks Delete
+		Url: http://localhost:8000/api/tracks/2/   #2 means track id
+		method: DELETE
+
+	6. Questions of a particular tarck
+		Url: http://localhost:8000/api/tracks/2/questions/   #2 means track id
+		method: GET
+		Response: [
+				    {
+				        "id": 1,
+				        "question_text": "asd",
+				        "track": 2
+				    },
+				    {
+				        "id": 6,
+				        "question_text": "qqqqwscddddd",
+				        "track": 2
+				    }
+				]
+User Choice API:
+
+	1. User Choice List
+		Url: http://localhost:8000/api/userchoice/
+		method: GET
+		Response: [
+				    {
+				        "id": 1,
+				        "question": 1,
+				        "choice": 1,
+				        "is_correct": false
+				    },
+				    {
+				        "id": 2,
+				        "question": 1,
+				        "choice": 2,
+				        "is_correct": true
+				    }
+				]
+	2. User Choice Create
+		Url: http://localhost:8000/api/userchoice/
+		method: POST
+		Request:
+				{
+				    "question": 1,
+				    "choice": 3,
+				    "is_correct": true
+				}
+		Response:
+				{
+				    "id": 8,
+				    "question": 1,
+				    "choice": 3,
+				    "is_correct": true
+				}
+	3. User Choice Detail
+		Url: http://localhost:8000/api/userchoice/8/   #2 means user choice id
+		method: GET
+		Response:
+				    {
+					    "id": 8,
+					    "question": 1,
+					    "choice": 3,
+					    "is_correct": true
+					}
+	4. User Choice Edit
+		Url: http://localhost:8000/api/userchoice/8/   #2 means user choice id
+		method: PUT
+		Request:
+				{
+				    "id": 8,
+				    "question": 1,
+				    "choice": 3,
+				    "is_correct": false
+				}
+		Response:
+				{
+				    "id": 8,
+				    "question": 1,
+				    "choice": 3,
+				    "is_correct": false
+				}
+
+	5. User Choice Delete
+		Url: http://localhost:8000/api/userchoice/2/   #2 means user choice id
+		method: DELETE
+
+Questions API:
+
+Added track to question model, so API's for create & edit will change
+
+	1. Question Create
+		Url: http://localhost:8000/api/questions/
+		method: POST
+		Request:
+			{
+			    "question_text": "qqqqq",
+			    "track": 2
+			}
+		Response:
+			{
+			    "id": 7,
+			    "question_text": "qqqqq",
+			    "track": 2
+			}
+	2. Question Update
+		Url: http://localhost:8000/api/questions/7/ #7 means question id
+		method: POST
+		Request:
+			{
+			    "question_text": "qqqqq12",
+			    "track": 2
+			}
+		Response:
+			{
+			    "id": 7,
+			    "question_text": "qqqqq12",
+			    "track": 2
+			}
+
+	3. Correct answers count of a particular question
+		Url: http://localhost:8000/api/questions/2/correct_answers/ #2 means question id
+		method: GET
+		Response:
+			{
+			    "count": 1,
+			    "question": "123"
+			}
+
+	4. Wrong answers count of a particular question
+		Url: http://localhost:8000/api/questions/2/wrong_answers/ #2 means question id
+		method: GET
+		Response:
+			{
+			    "count": 2,
+			    "question": "123"
+			}
